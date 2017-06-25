@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 web: python <rafael_bot.py>
+=======
+web: python rafael_bot.py
+>>>>>>> cadceecae8197d0aeb9dcff745ede991c836a4d5
