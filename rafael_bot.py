@@ -151,6 +151,7 @@ def show_languages(message):
 
 @bot.message_handler(commands=[commands.start])
 def send_welcome(message):
+	hello()
     bot.send_message(message.chat.id, "Hi, I'm the personal bot of Rafael.\nI want help you learn about hin")
     bot.send_message(message.chat.id, "So, lets start " + emojize(":smile:", use_aliases=True))
     bot.send_message(message.chat.id, "Basically what do what you know?", disable_notification=True,
