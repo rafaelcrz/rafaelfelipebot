@@ -1,5 +1,2 @@
-<<<<<<< HEAD
-web: python <rafael_bot.py>
-=======
+web: gunicorn gettingstarted.wsgi --log-file -
 web: python rafael_bot.py
->>>>>>> cadceecae8197d0aeb9dcff745ede991c836a4d5

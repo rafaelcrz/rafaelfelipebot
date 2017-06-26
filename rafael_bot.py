@@ -1,5 +1,4 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+from flask import Flask
 
 import random
 from api import Repositorie
@@ -226,4 +225,10 @@ def send_cv(message, document):
     bot.send_message(message.chat.id, "Thank's for you interess")
 
 
-bot.polling()  # none_stop=False
+app = Flask(__name__)
+
+@app.route("/start")
+def hello():
+    bot.polling()  # none_stop=False
+    return 'It works!'
+
