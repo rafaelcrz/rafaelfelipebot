@@ -1,1 +1,1 @@
-web: python rafael_bot.py
+web: gunicorn rafael_bot.py --log-file -
