@@ -227,7 +227,7 @@ def send_cv(message, document):
 
 app = Flask(__name__)
 
-@app.route("/start")
+@app.route("https://rafaelfelipebot.herokuapp.com/start")
 def hello():
     bot.polling()  # none_stop=False
     return 'It works!'
