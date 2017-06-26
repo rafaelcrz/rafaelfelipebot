@@ -1,1 +1,1 @@
-worker: python rafael_bot.py
+web: gunicorn gettingstarted.wsgi --log-file -
