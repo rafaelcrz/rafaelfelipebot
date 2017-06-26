@@ -156,10 +156,13 @@ def send_welcome(message):
     bot.send_message(message.chat.id, "Basically what do what you know?", disable_notification=True,
                      reply_markup=markup_main_topcs())
 
+
 @bot.message_handler()
 def send_sorry(message):
-    bot.send_message(message.chat.id, "I'm sorry, I cant talk using sentences, but I promess in my next version, I will do it.\n")
+    bot.send_message(message.chat.id,
+                     "I'm sorry, I cant talk using sentences, but I promess in my next version, I will do it.\n")
     show_main_topics(message)
+
 
 # separar os textos em dicinarios
 
@@ -227,13 +230,13 @@ def send_cv(message, document):
     bot.send_message(message.chat.id, "Thank's for you interess")
 
 
-@server.route("/start")#/start
+# rafaelfelipebot
+@server.route("/start")  # /start
 def hello():
-	bot.remove_webhook()
-	bot.set_webhook(url="https://rafaelfelipebot.herokuapp.com/start")#rafaelfelipebot
+    bot.remove_webhook()
+    bot.set_webhook(url="https://rafaelfelipebot.herokuapp.com/start")
     bot.polling()  # none_stop=False
     return 'It works!'
-	
-server.run(host="0.0.0.0", port=os.environ.get('PORT', 5000))
-server = Flask(__name__)
 
+#server.run(host="0.0.0.0", port=os.environ.get('PORT', 5000))
+#server = Flask(__name__)
