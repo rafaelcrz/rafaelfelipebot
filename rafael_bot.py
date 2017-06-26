@@ -10,12 +10,12 @@ from emoji import emojize
 from secrets import TOKEN
 
 bot = telebot.TeleBot(TOKEN)
-bot.remove_webhook()
-bot.set_webhook(url="https://rafaelfelipebot.herokuapp.com/start")
 
 me = bot.get_me()
 # update = bot.get_updates()
 commands = Commands()
+
+server = Flask(__name__)
 
 
 def markup_education():
@@ -227,10 +227,13 @@ def send_cv(message, document):
     bot.send_message(message.chat.id, "Thank's for you interess")
 
 
-app = Flask(__name__)
-
-@app.route("/start")
+@server.route("/")#/start
 def hello():
+	bot.remove_webhook()
+	bot.set_webhook(url="https://rafaelfelipebot.herokuapp.com/")#rafaelfelipebot
     bot.polling()  # none_stop=False
     return 'It works!'
+	
+server.run(host="0.0.0.0", port=os.environ.get('PORT', 5000))
+server = Flask(__name__)
 
