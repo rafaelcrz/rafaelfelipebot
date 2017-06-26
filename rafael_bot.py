@@ -226,12 +226,9 @@ def send_cv(message, document):
     bot.send_document(message.chat.id, doc)
     bot.send_message(message.chat.id, "Thank's for you interess")
 
-server = Flask(__name__)
+app = Flask(__name__)
 
-# rafaelfelipebot
-@server.route("/start")  # /start
+@app.route("/start")
 def hello():
-    #bot.remove_webhook()
-    #bot.set_webhook(url="https://rafaelfelipebot.herokuapp.com/start")
     bot.polling()  # none_stop=False
     return 'It works!'
