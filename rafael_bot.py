@@ -10,6 +10,8 @@ from emoji import emojize
 from secrets import TOKEN
 
 bot = telebot.TeleBot(TOKEN)
+bot.remove_webhook()
+bot.set_webhook(url="https://rafaelfelipebot.herokuapp.com/start")
 
 me = bot.get_me()
 # update = bot.get_updates()
@@ -227,7 +229,7 @@ def send_cv(message, document):
 
 app = Flask(__name__)
 
-@app.route("https://rafaelfelipebot.herokuapp.com/start")
+@app.route("/start")
 def hello():
     bot.polling()  # none_stop=False
     return 'It works!'
