@@ -227,10 +227,10 @@ def send_cv(message, document):
     bot.send_message(message.chat.id, "Thank's for you interess")
 
 
-@server.route("/")#/start
+@server.route("/start")#/start
 def hello():
 	bot.remove_webhook()
-	bot.set_webhook(url="https://rafaelfelipebot.herokuapp.com/")#rafaelfelipebot
+	bot.set_webhook(url="https://rafaelfelipebot.herokuapp.com/start")#rafaelfelipebot
     bot.polling()  # none_stop=False
     return 'It works!'
 	
