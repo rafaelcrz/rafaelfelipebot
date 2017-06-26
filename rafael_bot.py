@@ -229,8 +229,8 @@ def send_cv(message, document):
 
 @server.route("/start")#/start
 def hello():
-	bot.remove_webhook()
-	bot.set_webhook(url="https://rafaelfelipebot.herokuapp.com/start")#rafaelfelipebot
+	#bot.remove_webhook()
+	#bot.set_webhook(url="https://rafaelfelipebot.herokuapp.com/start")#rafaelfelipebot
     bot.polling()  # none_stop=False
     return 'It works!'
 	
