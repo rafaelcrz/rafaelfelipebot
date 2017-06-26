@@ -15,9 +15,6 @@ me = bot.get_me()
 # update = bot.get_updates()
 commands = Commands()
 
-server = Flask(__name__)
-
-
 def markup_education():
     markup = types.InlineKeyboardMarkup()
     degree = types.InlineKeyboardButton("Degree", callback_data='degree')
@@ -229,12 +226,13 @@ def send_cv(message, document):
     bot.send_document(message.chat.id, doc)
     bot.send_message(message.chat.id, "Thank's for you interess")
 
+server = Flask(__name__)
 
 # rafaelfelipebot
 @server.route("/start")  # /start
 def hello():
-    bot.remove_webhook()
-    bot.set_webhook(url="https://rafaelfelipebot.herokuapp.com/start")
+    #bot.remove_webhook()
+    #bot.set_webhook(url="https://rafaelfelipebot.herokuapp.com/start")
     bot.polling()  # none_stop=False
     return 'It works!'
 
