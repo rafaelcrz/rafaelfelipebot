@@ -228,7 +228,7 @@ def send_cv(message, document):
 
 app = Flask(__name__)
 
-@app.route("/start")
+@app.route("/")
 def hello():
     bot.polling()  # none_stop=False
     return 'It works!'
