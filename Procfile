@@ -1,2 +1,1 @@
-heroku ps:scale web=1
-heroku open
+web: gunicorn app:app
