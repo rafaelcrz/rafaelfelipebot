@@ -1,13 +1,14 @@
 import urllib.request
 import json
-from unittest.test.test_result import __init__
+#from urllib.request import urlopen
 
 
 # Get repositories from Github
 class Repositorie:
+
     def getRepositories(self):
-        with urllib.request.urlopen(
-                "https://api.github.com/search/repositories?q=user:rafaelcrz&sort:stars") as item:
-            data = json.load(item)
-            repository = data['items']
-        return repository  # name - html_url
+        response = urllib.request.urlopen(
+            "https://api.github.com/search/repositories?q=user:rafaelcrz&sort:stars").read().decode('utf8')
+        obj = json.loads(response)
+        repository = obj['items']
+        return repository
