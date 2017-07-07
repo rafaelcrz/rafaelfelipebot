@@ -257,7 +257,7 @@ def send_cv(message, document):
 ############################################################################################
 # Flask implementation
 
-@app.route("/bot", methods=['POST'])
+@app.route("/bot", methods=['GET'])
 def getMessage():
     bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
     return "!", 200
