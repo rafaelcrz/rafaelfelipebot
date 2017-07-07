@@ -1,6 +1,7 @@
 from flask import Flask
 
 import random
+import base64
 from api import Repositorie
 from bot_types import Commands
 import telebot
@@ -257,16 +258,10 @@ def send_cv(message, document):
 ############################################################################################
 # Flask implementation
 
-@app.route("/bot", methods=['GET'])
-def getMessage():
-    bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
-    return "!", 200
-
-
 @app.route("/")
 def webhook():
-    bot.remove_webhook()
-    bot.set_webhook(url="https://rafaelfelipebot.herokuapp.com/bot")  # rafaelfelipebot
+    #bot.remove_webhook()
+    #bot.set_webhook(url="https://rafaelfelipebot.herokuapp.com/bot")
     bot.polling()  # none_stop=False
     return "!", 200  # 'It works!'
 
@@ -274,5 +269,5 @@ def webhook():
 app.run(host="0.0.0.0", port=os.environ.get('PORT', 5000))
 app = Flask(__name__)
 
-# if __name__ == "__main__":
-#    app.run()
+if __name__ == "__main__":
+    app.run()
